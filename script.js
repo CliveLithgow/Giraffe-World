@@ -11,9 +11,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Launch a TinySurveys widget whenever the visitor navigates to another
-  // page on the site (tab links, in-content links to other pages, etc).
-  // Intentionally does NOT fire on first page load, only on click-through.
+  // Only wire up the survey-on-navigation behavior once a real TinySurveys
+  // key has been set. Until then, links behave normally so the site isn't
+  // broken while the key is pending.
+  var sdkScript = document.querySelector('script[data-key]');
+  var placeholder = 'YOUR_TINYSURVEYS_KEY';
+  var keyIsSet = sdkScript &&
+    sdkScript.getAttribute('data-key') &&
+    sdkScript.getAttribute('data-key') !== placeholder;
+
+  if (!keyIsSet) {
+    return; // links fall through to normal navigation
+  }
+
   var internalLinks = document.querySelectorAll('a[href$=".html"]');
 
   internalLinks.forEach(function (link) {
@@ -21,13 +31,20 @@ document.addEventListener('DOMContentLoaded', function () {
       var destination = link.getAttribute('href');
 
       if (typeof TinySurveys === 'undefined' || typeof TinySurveys.showTS !== 'function') {
-        return; // SDK not loaded — fall back to normal navigation
+        return; // SDK didn't load — fall back to normal navigation
       }
 
       event.preventDefault();
-      TinySurveys.showTS(function () {
+
+      try {
+        TinySurveys.showTS(function () {
+          window.location.href = destination;
+        });
+      } catch (err) {
+        // If the widget throws instead of calling back, don't strand the visitor
+        console.error('TinySurveys failed to open, navigating anyway.', err);
         window.location.href = destination;
-      });
+      }
     });
   });
 
