@@ -1,8 +1,7 @@
-# Field Notes
+# Giraffe World
 
-A small, dependency-free static website (plain HTML/CSS/JS) with a tab-style
-nav across four pages — Home, Giraffes, Fun Facts, and About. Built as a
-lightweight, low-friction place to test the TinySurveys WebSDK.
+A small static website (plain HTML/CSS/JS) about giraffes, with a four-tab
+structure: Home, Giraffes, Fun Facts, and About.
 
 ## Structure
 
@@ -10,9 +9,9 @@ lightweight, low-friction place to test the TinySurveys WebSDK.
 index.html       Home page
 giraffes.html     Giraffe photos + facts
 fun-facts.html    Quick trivia list
-about.html        About the site / where to drop the SDK snippet
+about.html        About the site
 styles.css        Shared styles
-script.js         Shared JS (mobile nav toggle)
+script.js         Shared JS (mobile nav toggle + navigation handling)
 ```
 
 ## Running locally
@@ -28,10 +27,10 @@ then visit `http://localhost:8000`.
 
 ## Deploying
 
-This is a static site, so it deploys directly on GitHub Pages with no
-build step. See the main setup instructions for step-by-step details.
+Static site — deploys directly on GitHub Pages with no build step.
 
-## Adding the TinySurveys WebSDK
+## Setup
 
-Drop your embed `<script>` tag near the bottom of any page's HTML, just
-before `</body>` (or in `<head>`, depending on what your SDK docs specify).
+Each page's `<head>` includes the widget script tag with a placeholder key
+(`data-key="YOUR_TINYSURVEYS_KEY"`). Replace the placeholder with your real
+key on all four pages before publishing.

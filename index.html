@@ -3,10 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Field Notes — Home</title>
-<meta name="description" content="A small field-guide style site, built to test the TinySurveys WebSDK.">
+<title>Giraffe World | Home</title>
+<meta name="description" content="A field guide dedicated to the world's tallest, most underrated mammal.">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23BE7A2A%22/><text x=%2250%22 y=%2268%22 font-size=%2260%22 text-anchor=%22middle%22>🦒</text></svg>">
+
+<!-- TinySurveys WebSDK -->
+<script
+  src="https://public.tinysurveys.org/widget.js"
+  data-key="YOUR_TINYSURVEYS_KEY"
+  data-hidebubble="true"
+></script>
 </head>
 <body>
 
@@ -14,7 +21,7 @@
   <div class="header-inner">
     <a class="brand" href="index.html">
       <span class="brand-mark"></span>
-      Field Notes <small>test site</small>
+      Giraffe World
     </a>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰ Menu</button>
     <nav class="tabs">
@@ -29,16 +36,16 @@
 <main>
   <section class="hero">
     <div class="wrap">
-      <p class="eyebrow">Welcome to the field guide</p>
-      <h1>Small site, <em>tall</em> ambitions.</h1>
+      <p class="eyebrow">Giraffa camelopardalis</p>
+      <h1>Where curiosity grows <em>tall</em>.</h1>
       <p class="lede">
-        This is a lightweight, hand-built website — a handful of static pages with
-        a simple tab structure, made for trying things out. It also happens to be
-        home to the internet's most enthusiastic page about giraffes.
+        Giraffe World is a small field guide built around one big animal —
+        towering necks, patchwork coats, and a quiet, graceful way of moving
+        through the savanna. Come for the photos, stay for the facts.
       </p>
       <div class="btn-row">
         <a class="btn btn-primary" href="giraffes.html">Meet the giraffes →</a>
-        <a class="btn btn-ghost" href="about.html">About this site</a>
+        <a class="btn btn-ghost" href="fun-facts.html">Quick facts</a>
       </div>
     </div>
   </section>
@@ -48,29 +55,29 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>What's here</h2>
-        <p class="section-note">Three other pages, each doing one simple job.</p>
+        <h2>Explore</h2>
+        <p class="section-note">Three ways to get to know the tallest animal on Earth.</p>
       </div>
 
       <div class="grid grid-3">
-        <div class="card">
+        <a class="card" href="giraffes.html" style="text-decoration:none; color:inherit;">
           <div class="card-body">
             <h3>Giraffes</h3>
-            <p>Photos and real facts about the tallest land animal on Earth — necks, spots, tongues, the works.</p>
+            <p>Photos and real biology — necks, spots, tongues, and the giraffe's place on the savanna.</p>
           </div>
-        </div>
-        <div class="card">
+        </a>
+        <a class="card" href="fun-facts.html" style="text-decoration:none; color:inherit;">
           <div class="card-body">
             <h3>Fun Facts</h3>
             <p>A shorter list of quick, bite-sized trivia for when you've only got a minute.</p>
           </div>
-        </div>
-        <div class="card">
+        </a>
+        <a class="card" href="about.html" style="text-decoration:none; color:inherit;">
           <div class="card-body">
             <h3>About</h3>
-            <p>What this site is for, how it's put together, and where the SDK snippet belongs.</p>
+            <p>Why this site exists, and what it's trying to do for giraffes.</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -78,17 +85,18 @@
   <section class="section">
     <div class="wrap">
       <div class="callout">
-        <h3>Testing the TinySurveys WebSDK?</h3>
-        <p>Drop your embed snippet in the <code>&lt;head&gt;</code> or before <code>&lt;/body&gt;</code> of any page — this site is plain HTML/CSS/JS, so there's no build step to fight with.</p>
-        <pre class="code-block">&lt;script src="YOUR-TINYSURVEYS-SNIPPET-URL"&gt;&lt;/script&gt;</pre>
+        <h3>Did you know?</h3>
+        <p>A giraffe's heart weighs around <strong>11kg (25lb)</strong> — built to pump blood
+        nearly two meters up to the brain against some of the highest blood pressure
+        of any mammal.</p>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="wrap">
-  <span>Field Notes — a small test site.</span>
-  <span>Built for giraffes and SDKs alike.</span>
+  <span>Giraffe World — a small field guide.</span>
+  <span>Built for anyone who thinks necks are underrated.</span>
 </footer>
 
 <script src="script.js"></script>
