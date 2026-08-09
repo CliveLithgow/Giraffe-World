@@ -61,6 +61,11 @@ a { color: inherit; }
 }
 
 /* ---------- top bar / tab nav ---------- */
+.horizon-bar {
+  height: 4px;
+  background: linear-gradient(90deg, var(--sky) 0%, var(--acacia) 52%, var(--ochre) 100%);
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -96,6 +101,7 @@ a { color: inherit; }
   background: var(--ochre);
   transform: rotate(45deg);
   flex: none;
+  box-shadow: 0 0 0 3px rgba(110, 156, 151, 0.25);
 }
 
 .brand small {
@@ -181,6 +187,7 @@ nav.tabs a.active::after {
   width: 100%;
   height: 380px;
   object-fit: cover;
+  object-position: center 30%;
   border-radius: 16px;
   box-shadow: 0 10px 24px rgba(43, 32, 19, 0.18);
 }
@@ -311,11 +318,19 @@ h2 {
 .card {
   background: var(--card-bg);
   border: 1px solid var(--line);
+  border-top: 3px solid var(--ochre);
   border-radius: 14px;
   overflow: hidden;
 }
 
+.grid .card:nth-child(3n+2) { border-top-color: var(--acacia); }
+.grid .card:nth-child(3n) { border-top-color: var(--sky); }
+
 .card .card-body { padding: 18px 20px 22px; }
+
+.eco-card {
+  border-left: 4px solid var(--acacia);
+}
 
 .card h3 {
   font-family: var(--font-display);
@@ -363,6 +378,9 @@ h2 {
   display: block;
 }
 
+.fact-strip .fact:nth-child(3n+2) .num { color: var(--acacia); }
+.fact-strip .fact:nth-child(3n) .num { color: var(--sky); }
+
 .fact .label {
   font-size: 0.8rem;
   color: var(--charcoal-70);
@@ -403,12 +421,29 @@ h2 {
   transform: rotate(-4deg);
 }
 
+.fun-list li:nth-child(even) .mark {
+  background: var(--sky);
+  transform: rotate(4deg);
+}
+
 /* callout / sdk box */
 .callout {
+  position: relative;
+  overflow: hidden;
   background: var(--charcoal);
   color: var(--sand);
   border-radius: 16px;
   padding: 32px;
+}
+
+.callout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--sky), var(--acacia));
 }
 
 .callout h3 {
@@ -432,6 +467,8 @@ footer {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, var(--ochre), var(--acacia), var(--sky)) 1;
 }
 
 /* ---------- responsive ---------- */
