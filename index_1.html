@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farros Capital</title>
+
+
+    <!-- TinySurvey - Method D: JavaScript API -->
+
+<script
+  src="https://public.tinysurveys.org/widget.js"
+  data-key="IIxpaypiTZ2opQWnjW37e8oBFHSd2unI3lLuwEBu"
+  data-hidebubble="true"
+></script>
+
+    
+    <!-- Site Favicon Component -->
+    <link rel="icon" type="image/png" href="Lightbulb Icon.3 (Favicon).png">
+    
+    <style>
+        /* Global Structural Alignment & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: #ffffff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #111111;
+        }
+
+        body {
+            font-size: 14px;
+            line-height: 1.6;
+            background-color: transparent;
+        }
+
+        /* THE BULLETPROOF BACKGROUND LAYER */
+        .fixed-background-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            background-image: url('Lightbulb_Background.bmp');
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: cover; 
+            pointer-events: none; 
+        }
+
+        /* Fixed Navigation Header Grid */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #d3d3d3; /* The single, permanent boundary line */
+            z-index: 9999;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+
+        /* Navigation Logo upscaled by 50% */
+        .header-logo img {
+            max-height: 98px;
+            width: auto;
+            display: block;
+        }
+
+        /* Hidden Checkbox & Burger Trigger elements defaults */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger-btn {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger-btn span {
+            display: block;
+            width: 24px;
+            height: 3px;
+            background-color: #000080; /* Corporate Navy */
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #777777; /* Updated to a distinct, clear medium gray */
+            font-weight: 400; /* Unbolded top menu items */
+            font-size: 16px; /* Set precisely to 16px */
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Seamless Layout Section Viewports */
+        section {
+            width: 100%;
+            padding: 180px 40px 80px 40px; 
+            border-bottom: 1px solid rgba(0, 0, 128, 0.25);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* Standardized Semi-Transparent Content Box (used for Founder, Portfolio, Contact) */
+        .section-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.75); 
+            padding: 40px;
+            border: 1px solid rgba(226, 232, 240, 0.7);
+            border-radius: 4px;
+        }
+
+        /* Home and About Viewport Frameworks set to 100% True Transparency */
+        #home, #about {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+        }
+
+        #home .section-wrapper, #about .section-wrapper {
+            background-color: transparent !important; 
+            border: none;
+            padding: 40px 20px;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            box-shadow: none;
+        }
+
+        /* Shared Home & About Typography Block - Left-Justified internally, Centered Block Layout */
+        .large-advisory-text {
+            text-align: left;
+            max-width: 460px;   /* Constrains block size to center beautifully */
+            margin: 0 auto;     /* Centers the entire block on the screen */
+        }
+
+        .large-advisory-text p {
+            font-size: 20px;    /* Uniform styling rule across Home & About text content blocks */
+            line-height: 1.6;
+            color: #000080;
+            font-weight: 400;   /* Clean, unbolded typography weight rule universally applied */
+            margin-bottom: 28px;
+            text-align: left;   /* Strict internal left justification */
+        }
+
+        /* Typography Rules for Standardized Containers */
+        .section-header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #000080; /* Main Section Header Underline (2px) */
+            margin-bottom: 25px;
+            padding-bottom: 6px;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #000080;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* MINIMALIST ARROW LINK */
+        .go-to-top-link {
+            text-decoration: none;
+            color: #000080;
+            font-size: 16px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            transition: opacity 0.2s ease-in-out;
+            padding: 4px 8px; /* Creates an invisible, comfortable tap target zone */
+        }
+
+        .go-to-top-link:hover {
+            opacity: 0.6;
+            text-decoration: none;
+        }
+
+        h3 {
+            font-size: 16px;
+            color: #000080;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 6px;
+        }
+
+        p {
+            font-size: 14.5px;
+            margin-bottom: 18px;
+            text-align: left;
+            color: #1a202c;
+        }
+
+        /* Style for live links in portfolio descriptions */
+        p a {
+            color: #000080;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        ul.portfolio-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul.portfolio-list li {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #bbbbbb;
+        }
+
+        ul.portfolio-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        /* Split Bio Layout */
+        .bio-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .bio-photo {
+            flex-shrink: 0;
+        }
+
+        /* Headshot image dimension scaled down 25% */
+        .bio-photo img {
+            width: 150px;
+            height: auto;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .bio-text {
+            flex-grow: 1;
+        }
+
+        /* Anti-Scraping Address Box */
+        .address-card {
+            margin-top: 20px;
+            padding: 25px;
+            background-color: rgba(247, 250, 252, 0.8);
+            border-left: 4px solid #000080;
+            display: inline-block;
+            min-width: 340px;
+        }
+
+        .address-card p {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        /* Anti-Scrape Email Graphic Alternative Container */
+        .secure-email-box {
+            display: inline-flex;
+            font-weight: 600;
+            color: #000080;
+            user-select: none;
+        }
+        
+        .secure-email-box .domain::before {
+            content: "\0040";
+            padding: 0 1px;
+        }
+
+        /* Layout Footer */
+        footer {
+            background-color: rgba(255, 255, 255, 0.98);
+            border-top: 1px solid #d3d3d3;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #718096;
+        }
+
+        /* ==========================================================================
+            ⚡ SCREEN RESIZING OVERRIDES
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .fixed-background-layer {
+                background-size: contain; 
+                background-position: right center;
+            }
+
+            #home, #about {
+                min-height: auto;
+            }
+
+            #home .section-wrapper, #about .section-wrapper {
+                padding: 40px 24px;
+                background-color: transparent !important; 
+                border: none;
+            }
+
+            .large-advisory-text {
+                margin: 0 auto;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                position: fixed; 
+                padding: 10px 20px;
+            }
+
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0;
+            }
+
+            .header-logo img {
+                max-height: 60px;
+            }
+
+            /* Display the 3-Bar Hamburger Trigger Button */
+            .hamburger-btn {
+                display: block;
+                z-index: 10001;
+            }
+
+            /* Mobile Dropdown Nav Menu Configurations */
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.98);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+                z-index: 10000;
+                border-bottom: none; /* Explicitly clears duplicate lines when closed */
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 0 20px;
+            }
+
+            nav ul li {
+                width: 100%;
+                border-bottom: 1px solid rgba(0, 0, 128, 0.08);
+            }
+
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            nav ul li a {
+                padding: 14px 0;
+                font-size: 16px; /* Keeps mobile dropdown responsive sizing uniform at 16px */
+            }
+
+            /* THE CSS TOGGLE MECHANIC: When checkbox is ticked, expand the menu */
+            #menu-toggle:checked ~ nav {
+                max-height: 400px; 
+                border-bottom: 1px solid #d3d3d3; /* Only adds a separation line when menu is fully dropped open */
+            }
+
+            /* Animate 3-bars into an 'X' when open */
+            #menu-toggle:checked ~ .hamburger-btn span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+            #menu-toggle:checked ~ .hamburger-btn span:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-toggle:checked ~ .hamburger-btn span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            section {
+                padding: 140px 16px 60px 16px; 
+            }
+
+            .section-wrapper {
+                padding: 24px 16px;
+                background-color: rgba(255, 255, 255, 0.94); 
+            }
+
+            .bio-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: left; 
+                gap: 24px;
+            }
+
+            .bio-text h3, .bio-text p {
+                text-align: left; 
+            }
+
+            .address-card {
+                display: block;
+                width: 100%;
+                min-width: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .large-advisory-text p {
+                font-size: 19px; 
+            }
+            .go-to-top-link {
+                font-size: 18px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fixed-background-layer"></div>
+
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="#home"><img src="FarrosCapitalLogo.7.bmp" alt="Farros Capital Logo"></a>
+            </div>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav>
+                <ul>
+                    <li><a href="#home" onclick="document.getElementById('menu-toggle').checked = false;">Home</a></li>
+                    <li><a href="#about" onclick="document.getElementById('menu-toggle').checked = false;">About</a></li>
+                    <li><a href="#founder" onclick="document.getElementById('menu-toggle').checked = false;">Founder</a></li>
+                    <li><a href="#portfolio" id="portfolio-link">Portfolio</a></li>
+                    <li><a href="#contact" onclick="document.getElementById('menu-toggle').checked = false;">Contact</a></li>
+                    <li><a href="https://royalfarros.wordpress.com" target="_blank" id="royal-blog-link">Royal Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="section-wrapper">
+            <div class="large-advisory-text">
+                <p><b>M&A and business<br>advisory services</b>.</p>
+                <p>Helping create,<br>grow, pivot, or sell<br>technology businesses<br><b>in ways others can't</b>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-wrapper">
+            <div class="large-advisory-text">
+                <p><b>FarrosCapital</b> is a different type of<br>advisory organization.</p>
+                <p>One that's created by successful<br>entrepreneurs. One that brings <b>a<br>rare level of <i>hands-on</i><br>involvement and expertise</b>.</p>
+                <p>In short: One that is responsive<br>(like you are), adds value quickly<br>(like you want), and can actually<br><b>help you succeed</b>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="founder">
+        <div class="section-wrapper">
+            <div class="section-header-container">
+                <h2>Founder</h2>
+                <a href="#home" class="go-to-top-link" title="Go to Top">▲</a>
+            </div>
+            <div class="bio-container">
+                <div class="bio-photo">
+                    <img src="Head Shot -- Royal Farros.bmp" alt="Royal Farros Headshot">
+                </div>
+                <div class="bio-text">
+                    <h3>Royal Farros, Managing Director</h3>
+                    <p>Royal Farros has spent over three decades as a technology entrepreneur and investor. Royal is founder and Managing Director of Farros Capital, providing funding, mentorship, and M&A/business advisory services to technology companies.</p>
+                    <p>Royal is also founder and CEO of Big Heart Technology, reinventing both market research (TinySurveys™) <i>and</i> non-profit fundraising (Big Heart Trivia™) for a mobile world. He is also a strategic advisor to several companies, including Logic, Inc., creating the world's first physical AI robotic/transportation/data device operating system LogicOS.</p>
+                    <p>Before Farros Capital, Royal was CEO and Chairman of portfolio company IMSI/Design, acquired by an investment group out of Mentor Graphics in 2016; co-founded and was CEO of MessageCast, Inc., acquired by Microsoft (NASD:MSFT) in 2005; founded and was CEO of iPrint.com (NASD: IPRT), taken public in 2000; was an Officer and General Manager at Deluxe Corporation (NYSE:DLX); and was Chairman and EVP of T/Maker Company (acquired by Deluxe Corporation).</p>
+                    <p>A San Jose Business Journal Entrepreneur of the Year award winner and previously named one of Smart Computing's Top 25 Internet Executives, Royal has been widely interviewed and quoted, has appeared numerous times on CNBC and other financial and high tech venues, has guest lectured at both Stanford Graduate School of Business and Stanford Law School, and mentors and teaches at Draper University school for entrepreneurialism.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="section-wrapper">
+            <div class="section-header-container">
+                <h2>Portfolio</h2>
+                <a href="#home" class="go-to-top-link" title="Go to Top">▲</a>
+            </div>
+            <ul class="portfolio-list">
+                <li>
+                    <h3>Audigen [research phase]</h3>
+                    <p>Eradicating hearing loss on a global scale.</p>
+                </li>
+                <li>
+                    <h3>BattleIQ</h3>
+                    <p>eSports. Adding another layer of gamification to games to create a brand new way to monetize real-time content.</p>
+                </li>
+                <li>
+                    <h3>Big Heart Technology, p.b.c.</h3>
+                    <p>A holding company for a series of technological innovations dedicated to helping those that help others. Includes TinySurveys™ and Big Heart Trivia™. A Public Benefit Corporation. &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.BigHeartTechnology.org" target="_blank">www.BigHeartTechnology.org</a></p>
+                </li>
+                <li>
+                    <h3>Big Heart Trivia</h3>
+                    <p>Re-inventing non-profit fundraising by making a game out of it. &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.BigHeartTrivia.org" target="_blank">www.BigHeartTrivia.org</a></p>
+                </li>
+                <li>
+                    <h3>Dianovix [research phase]</h3>
+                    <p>Ground-breaking diagnostic biomarkers and therapies for the treatment of multiple sclerosis.</p>
+                </li>
+                <li>
+                    <h3>Equepa [research phase]</h3>
+                    <p>Preventing neurodegenerative disorders like Alzheimer's, Parkinson's, stroke, and multiple sclerosis.</p>
+                </li>
+                <li>
+                    <h3>Givling, Inc.</h3>
+                    <p>Crowdfunding through gaming.</p>
+                </li>
+                <li>
+                    <h3>GoLorry, Inc.</h3>
+                    <p>Creating the Uber of commercial trucking in India.</p>
+                </li>
+                <li>
+                    <h3>GrowCredit, Inc.</h3>
+                    <p>The first fintech organization dedicated to helping millennials establish and build credit. &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.GrowCredit.com" target="_blank">www.GrowCredit.com</a></p>
+                </li>
+                <li>
+                    <h3>Gumstix, Inc.</h3>
+                    <p>Pioneered the industry's first cloud-based, drag & drop design shop for IoT devices.  &nbsp;&nbsp;&nbsp;&nbsp;<b>Acquired by Altium, Inc.</b></p>
+                </li>
+                <li>
+                    <h3>Head Over Heels</h3>
+                    <p>An elegant jewelry and high-end consignment shopping experience. Flagship location Menlo Park, California.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Merged with Anthem Furnishings.</b></p>
+                </li>
+                <li>
+                    <h3>IMSI/Design</h3>
+                    <p>A pioneer in mobile solutions for the AEC (Architectural, Engineering, and Construction) industry and the global leader in retail CAD (Computer Aided Design).&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Acquired by Mentor Graphics investor group.</b></p>
+                </li>
+                <li>
+                    <h3>Infectious.com</h3>
+                    <p>A new way to print on everything... from iPods to automobiles. Unique community-based approach. &nbsp;&nbsp;&nbsp;www.Infectious.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Acquired by Fastsigns.</b></p>
+                </li>
+                <li>
+                    <h3>iPrint.com</h3>
+                    <p>The original online print shop on the Internet. Over one million customers served. www.iPrint.com &nbsp;&nbsp;<b>Taken public (NASD: IPRT); Taken private via merger with 12th largest promotional products company in U.S.</b></p>
+                </li>
+                <li>
+                    <h3>Logic, Inc.</h3>
+                    <p>Creating the world's first physical AI robotic/transportation/data device operating system LogicOS.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.Logic-OS.com" target="_blank">www.Logic-OS.com</a></p>
+                </li>
+                <li>
+                    <h3>MessageCast</h3>
+                    <p>A pioneer in broadcast messaging systems using real-time networks and RSS. &nbsp;&nbsp;&nbsp;&nbsp;<b>Acquired by Microsoft (NASD: MSFT)</b>.</p>
+                </li>
+                <li>
+                    <h3>TinySurveys</h3>
+                    <p>Re-inventing market research for a mobile world. &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.TinySurveys.org" target="_blank">www.TinySurveys.org</a></p>
+                </li>
+                <li>
+                    <h3>T/Maker Company</h3>
+                    <p>An early personal computer software company that created leading brands such as Personal Publisher (PFS: First Publisher), WriteNow for Macintosh, and ClickArt. &nbsp;&nbsp;<b>Acquired by Deluxe Corporation (NYSE: DLX)</b>.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-wrapper">
+            <div class="section-header-container">
+                <h2>Contact Us</h2>
+                <a href="#home" class="go-to-top-link" title="Go to Top">▲</a>
+            </div>
+            
+            <div class="address-card">
+                <p><strong>Farros Capital</strong></p>
+                <p>Woodside, California</p>
+                <p>Web: www.farros.net</p>
+                <p>Email: <span class="secure-email-box"><span class="user">info</span><span class="domain">farros.net</span></span></p>
+            </div>
+        </div>
+    </section>
+
+<br>
+<br>
+
+    <footer>
+        <p style="text-align: center;">Copyright &copy; 2026 Farros Capital.<br>All rights reserved.</p>
+    </footer>
+
+    <!-- Add the custom trigger in the page content -->
+    <script>
+        document.querySelector('#portfolio-link').onclick = (e) => {
+            e.preventDefault();
+            document.getElementById('menu-toggle').checked = false;
+            TinySurveys.showTS(() => {
+                document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+            });
+        };
+
+        document.querySelector('#royal-blog-link').onclick = (e) => {
+            e.preventDefault();
+            document.getElementById('menu-toggle').checked = false;
+            TinySurveys.showTS(() => {
+                window.open('https://royalfarros.wordpress.com', '_blank');
+            });
+        };
+    </script>
+
+</body>
+</html>
