@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="horizon-bar"></div>
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      Giraffe World
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰ Menu</button>
+    <nav class="tabs">
+      <a href="index.html"{% if page.nav == "home" %} class="active"{% endif %}>Home</a>
+      <a href="giraffes.html"{% if page.nav == "giraffes" %} class="active"{% endif %}>Giraffes</a>
+      <a href="fun-facts.html"{% if page.nav == "fun-facts" %} class="active"{% endif %}>Fun Facts</a>
+      <a href="about.html"{% if page.nav == "about" %} class="active"{% endif %}>About</a>
+    </nav>
+  </div>
+</header>
