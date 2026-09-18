@@ -5,10 +5,10 @@ description: >-
   food, style, travel, and the people shaping it. Built as a structural test
   bed for TinySurveys WebSDK Content Navigation (JSON-LD Article + og:type=article).
 url: "https://clivelithgow.github.io"
-baseurl: "/harborline"
+baseurl: "/Giraffe-World"
 
 markdown: kramdown
-permalink: /:categories/:title/
+permalink: /:title/
 
 collections:
   posts:
