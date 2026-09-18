@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#a9812f"/>
+  <rect x="0" y="0" width="800" height="600" fill="#14181c" opacity="0.06"/>
+  <text x="40" y="560" font-family="Georgia, serif" font-size="28" fill="#f7f4ec" opacity="0.85">Style</text>
+</svg>

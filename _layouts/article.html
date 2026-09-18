@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.excerpt | strip_html | truncate: 200 | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  {% if page.image %}"image": [{{ page.image | absolute_url | jsonify }}],{% endif %}
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site.title }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}"
+  },
+  "mainEntityOfPage": {{ page.url | absolute_url | jsonify }}
+}
+</script>
+
+<article>
+  <div class="wrap article-head">
+    <span class="kicker">{{ page.category | default: "City Life" }}</span>
+    <h1>{{ page.title }}</h1>
+    <div class="article-meta">By {{ page.author | default: "Harborline Staff" }} · {{ page.date | date: "%B %-d, %Y" }}</div>
+  </div>
+
+  {% if page.image %}
+  <div class="wrap article-figure">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    {% if page.caption %}<figcaption>{{ page.caption }}</figcaption>{% endif %}
+  </div>
+  {% endif %}
+
+  <div class="wrap article-body">
+    {{ content }}
+  </div>
+</article>

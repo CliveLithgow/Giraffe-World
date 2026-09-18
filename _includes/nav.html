@@ -1,0 +1,13 @@
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <a href="{{ '/' | relative_url }}" class="wordmark">Harbor<span>line</span></a>
+    <div class="masthead-meta">San Francisco, considered.<br>{{ 'now' | date: "%A, %B %-d" }}</div>
+  </div>
+  <div class="wrap">
+    <nav class="categories">
+      {% for cat in site.categories %}
+      <a href="{{ '/category/' | append: cat.slug | append: '/' | relative_url }}">{{ cat.name }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

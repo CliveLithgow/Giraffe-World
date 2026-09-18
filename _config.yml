@@ -1,2 +1,42 @@
-title: Giraffe World
-description: A field guide dedicated to the world's tallest, most underrated mammal.
+title: Harborline
+tagline: San Francisco, considered.
+description: >-
+  Harborline is a city-life and culture publication covering San Francisco —
+  food, style, travel, and the people shaping it. Built as a structural test
+  bed for TinySurveys WebSDK Content Navigation (JSON-LD Article + og:type=article).
+url: "https://clivelithgow.github.io"
+baseurl: "/harborline"
+
+markdown: kramdown
+permalink: /:categories/:title/
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+
+# TinySurveys WebSDK test key (carried over from Giraffe World test env)
+tinysurveys_key: "h3LiR5qVfG9ctbemVlMLA6qJ6ZivlLEy6OgklRfo"
+
+categories:
+  - name: Eat & Drink
+    slug: eat-drink
+  - name: Style
+    slug: style
+  - name: Culture
+    slug: culture
+  - name: Travel
+    slug: travel
+  - name: City Life
+    slug: city-life
+  - name: Scene
+    slug: scene
+
+exclude:
+  - README.md

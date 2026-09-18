@@ -1,4 +1,9 @@
-<footer class="wrap">
-  <span>Giraffe World — a small field guide.</span>
-  <span>{{ page.footer_note }}</span>
+<footer>
+  <div class="wrap">
+    <div>&copy; {{ 'now' | date: "%Y" }} Harborline. A local test publication.</div>
+    <div>
+      <a href="{{ '/about/' | relative_url }}">About</a> &nbsp;·&nbsp;
+      <a href="{{ '/' | relative_url }}">Home</a>
+    </div>
+  </div>
 </footer>

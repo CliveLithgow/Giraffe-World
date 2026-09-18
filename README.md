@@ -1,71 +1,59 @@
-# Giraffe World
+# Harborline (TinySurveys WebSDK test site)
 
-A static website about giraffes, built with Jekyll (GitHub Pages' native
-static site generator — no extra setup needed on GitHub's side).
+A small fictional San Francisco city-life magazine, built as a **structural**
+stand-in for a real editorial site (the kind of layout `modernluxury.com/san-francisco`
+uses) so the new TinySurveys implementation can be tested against something
+with the same shape: a masthead with category nav, a homepage hero + grid of
+stories, and individual article pages.
 
-## Why Jekyll now
+None of the copy, images, or design here were copied from any real
+publication — it's original placeholder content, structured the way a
+city magazine is structured, for testing purposes.
 
-Previously this was four fully independent HTML files, each with its own
-copy-pasted header and footer. That's not how most real websites work, so
-it was a poor stand-in for testing anything that assumes a shared/global
-site header (like a WebSDK snippet meant to be "installed once").
+## Why this shape
 
-This version has a single actual source of truth for the header and
-footer, which Jekyll builds into every page automatically — matching how
-a real CMS or templated site behaves.
+- **Category nav** across the masthead (`Eat & Drink`, `Style`, `Culture`,
+  `Travel`, `City Life`, `Scene`) — mirrors a multi-section magazine, useful
+  for testing nav-driven survey triggers across distinct content verticals.
+- **Homepage hero + grid** — a lead story, two secondary side-stories, and a
+  grid of further stories, same as most editorial homepages.
+- **Article pages** (`_layouts/article.html`) emit both a JSON-LD `Article`
+  block and `og:type=article`, since Content Navigation on the WebSDK keys
+  off exactly those two signals (per what got Giraffe World working).
 
 ## Structure
 
 ```
-_config.yml            Site-wide settings
-_layouts/default.html  The shared page shell: <head>, header include,
-                        page content, footer include, scripts
-_includes/header.html  The global header + nav — edit this once, it
-                        applies to every page
-_includes/footer.html  The global footer (per-page note passed in via
-                        front matter)
-index.html              Home page content + front matter
-giraffes.html           Giraffes page content + front matter
-fun-facts.html          Fun Facts page content + front matter
-about.html               About page content + front matter
-styles.css              Shared styles (unchanged)
-script.js               Shared JS — mobile nav toggle (unchanged)
+_config.yml           site config + category list + tinysurveys_key
+_layouts/
+  default.html         base HTML shell, meta tags, font + stylesheet includes
+  article.html         per-article JSON-LD + og:type=article
+  category.html        category archive listing
+_includes/
+  nav.html              masthead + category nav
+  footer.html
+_posts/                6 sample articles, one or two per category
+category/<slug>/       archive page per category
+assets/css/style.css   all styling
+assets/js/site.js      placeholder — SDK snippet hook lives in default.html
+index.html             homepage
+about.html
 ```
 
-Each content page starts with a front-matter block like:
+## Running it locally
 
 ```
----
-layout: default
-title: Giraffes
-description: Photos and facts about giraffes.
-nav: giraffes
-footer_note: Photos via Wikimedia Commons.
----
+bundle install
+bundle exec jekyll serve
 ```
 
-`nav` controls which tab is marked active; `footer_note` is the
-second line in that page's footer. Everything else — the actual header
-markup, nav links, `<head>` tags, footer structure — lives once in
-`_layouts/default.html` / `_includes/`.
+Or push it straight to a GitHub Pages repo — `github-pages` gem in the
+`Gemfile` matches what Pages builds with.
 
-## Adding something site-wide (e.g. a WebSDK snippet)
+## Dropping in the WebSDK
 
-Add it once inside `_layouts/default.html` (there's a comment marking
-where the `<head>` ends), and it will appear on every page after your
-next deploy — no need to touch individual page files.
-
-## Running locally
-
-Requires Jekyll (Ruby-based):
-
-```
-jekyll serve
-```
-
-then visit `http://localhost:4000`.
-
-## Deploying
-
-GitHub Pages builds Jekyll sites automatically — just push these files
-to your repo as-is. No build step to configure.
+`_layouts/default.html` has a comment marking where to add the real
+TinySurveys WebSDK script tag. `site.tinysurveys_key` in `_config.yml`
+already carries over the key used on Giraffe World
+(`h3LiR5qVfG9ctbemVlMLA6qJ6ZivlLEy6OgklRfo`) — swap it if the new
+implementation issues a different one for this test.

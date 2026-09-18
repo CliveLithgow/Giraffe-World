@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<section class="wrap">
+  <div class="section-head">
+    <h2>{{ page.category_name }}</h2>
+  </div>
+  <div class="grid">
+    {% assign filtered = site.posts | where: "category", page.category_name %}
+    {% for post in filtered %}
+    <a class="card" href="{{ post.url | relative_url }}">
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      <span class="kicker">{{ post.category }}</span>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.excerpt }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
